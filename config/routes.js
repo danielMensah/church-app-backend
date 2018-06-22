@@ -12,7 +12,19 @@ const home = require('../app/controllers/home');
 
 module.exports = function (app, passport) {
 
-  app.get('/', home.index);
+  app.get('/', (req, res, next) => {
+    const obj = {
+      name: 'Daniel',
+      surname: 'Mensah',
+      phones: [
+        {
+          value: '08y398y423',
+          type: 'home'
+        }
+      ]
+    };
+    res.json(obj);
+  });
 
   /**
    * Error handling
